@@ -1,0 +1,291 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    font-size: 16px;
+    --header-color: rgb(24, 30, 33);
+    --roboto-bold: 'Roboto', sans-serif;
+    --backgound-gray: rgb(218, 216, 211);
+}
+@font-face {
+    font-family: myMainFont;
+    src: url("../Fonts/Poppins/Poppins-Regular.ttf");
+}
+html {
+    font-family: 100%;
+}
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+main {
+    width: 100%;
+    position: relative;
+}
+header {
+    position: fixed;
+    width: 100%;
+    height: 87px;
+    background: var(--header-color);
+    z-index: 99;
+}
+header > div {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a {
+    font-family: var(--roboto-bold);
+    color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+header nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+    transition: 0.3s;
+}
+header nav.open {
+    width: 100%;
+}
+header nav ul {
+    list-style: none;
+}
+header nav a {
+    font-family: myMainFont;
+    display: inline-block;
+    width: 100vw;
+    font-size: 2rem;
+    padding: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0;
+    transition: 0.3s;
+}
+header nav.open a {
+    opacity: 1;
+}
+.toggle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 4.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+.toggle > div {
+    width: 80%;
+    height: 6px;
+    background: #fff;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+.toggle > div::before,
+.toggle > div::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: #fff;
+    top: -12px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.toggle > div::after {
+    top: 12px;
+}
+.toggle.open > div {
+    background: transparent;
+}
+.toggle.open > div::before,
+.toggle.open > div::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(405deg);
+}
+.toggle.open > div::after {
+    transform: translate(-50%, -50%) rotateZ(-405deg);   
+}
+.top-section {
+    width: 100%;
+    position: relative;
+    background: #EEE9E2;
+}
+.top-section > div {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.title-section {
+    font-size: 2.4rem;
+    font-family: var(--roboto-bold);
+    text-transform: uppercase;
+    color: #000;
+    padding: 30px 0;
+    margin-top: 120px;
+}
+.title-section + div {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 45px;
+    margin: 10px 0;
+}
+.input-field {
+    width: 100%;
+}
+.input-field > div:not(.book-button){
+    display: flex;
+    flex-direction: column;
+}
+.input-field label {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.input-field input,
+.input-field textarea {
+    font-size: 1.3rem;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+    margin-top: 15px;
+}
+.input-field > div > div {
+    margin-top: 35px;
+}
+.input-field textarea {
+    margin-bottom: 20px;
+    resize: none;
+}
+.book-button > button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    background: #161414;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 20px 40px;
+    margin: 30px 0 50px 0;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #fff;
+}
+.book-button > button:hover {
+    color: rgb(39, 38, 41);
+    background: #fff;
+}
+.shop-description {
+    width: 100%;
+    background: #fff;
+}
+.shop-description > div {
+    width: 90%;
+    height: 100%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* display: flex;
+    align-items: center;
+    position: relative; */
+}
+.shop-description p {
+    color: #000;
+    font-size: 2.4rem;
+    font-family: var(--roboto-bold);
+    text-transform: uppercase; 
+}
+footer {
+    width: 100%;
+    background: rgb(238, 233, 226);
+}
+footer > div {
+    width: 90%;
+    margin: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+footer h1 {
+    font-size: 2rem;
+    font-family: var(--roboto-bold);
+    text-transform: uppercase;
+    padding: 50px 0;
+}
+footer > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+}
+footer > div > div > div {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: 'Sorts Mill Goudy', serif;
+    font-weight: 500;
+}
+footer .first-div {
+    margin-top: 0;
+}
+.social {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+.social span {
+    color: #000;
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    margin: 0 0 0 20px;
+}
+.social span p {
+    background: #fff;
+    color: #000;
+    padding: 5px 10px;
+    position: absolute;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-family: myMainFont;
+    border-radius: 2px;
+    top: 100%;
+    left: 100%;
+    opacity: 0;
+    transition: 0.1s;
+    border: 1px solid #000;
+}
+.social span:hover p {
+    opacity: 1;
+    transition-delay: 0.5s;
+}
